@@ -8,6 +8,8 @@ iframes are a little bit picky about the url you use for the `src` attribute.
 To get the video to render be sure to set up the embedUrl along the lines of:
 
 ```js
+// videoId is coming from the api response,
+// to be found at .id.videoId
 const embedUrl = `https://www.youtube.com/embed/${videoId}`;
 
 // in the JSX
@@ -47,8 +49,9 @@ export default {
 lodash debounce method is a cool feature to add (time permitting):
 
 ```js
-//_.debounce returns passed callback function that can
-// only be run every 200 milliseconds
+//_.debounce is passed a function and an amount of time (n) in milliseconds.
+// it will retunr a copy of the passed in function that can only be called
+// once per n seconds
 
 const videoSearch = _.debounce(term => {
   this.videoSearch(term);
