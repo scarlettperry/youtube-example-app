@@ -1,5 +1,7 @@
 # Youtube Example App
 
+![Copy this image if you like](youtube-example-mockup.png)
+
 ## A few things of note
 
 #### iframes are weird
