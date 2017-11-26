@@ -1,6 +1,6 @@
 # Youtube Example App
 
-![Copy this image if you like](youtube-example-mockup.png)
+![Copy this image if you like](youtube-example-mockup-img.png)
 
 ## A few things of note
 
