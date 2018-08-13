@@ -15,50 +15,30 @@ class YouTubeContainer extends Component {
   //   this.state = {
   //     videos: data
   //   }
-  // }c
+  // }
 
   state = {
     videos: [],
-    currentVideo: {},
-    term: ''
+    currentVideo: {}
   }
 
 
   componentDidMount () {
-    this.fetchVideos()
+    this.onSearchClick('')
   }
 
-  onSearchChange = (e) => {
-    this.setState({
-      term: e.target.value
-    }, this.fetchVideos )
+
+  onSearchClick = (term) => {
+    const searchUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${keys.API_KEY}&q=${term}&type=video`
+    fetch(searchUrl)
+    .then(resp => resp.json())
+    .then(json => {
+      this.setState({
+          videos: json.items,
+          currentVideo: json.items[0]
+        })
+    })
   }
-
-  fetchVideos = () => {
-    const searchUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${keys.API_KEY}&q=${this.state.term}&type=video`
-     fetch(searchUrl)
-     .then(resp => resp.json())
-     .then(json => {
-       this.setState({
-           videos: json.items,
-           currentVideo: json.items[0]
-         })
-     })
-  }
-
-  // onSearchClick = (term) => {
-  //   const searchUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${keys.API_KEY}&q=${term}&type=video`
-  //   fetch(searchUrl)
-  //   .then(resp => resp.json())
-  //   .then(json => {
-  //     this.setState({
-  //         videos: json.items,
-  //         currentVideo: json.items[0]
-  //       })
-  //   })
-  // }
-
-
 
 
   onTileClick = (video) => {
@@ -73,7 +53,7 @@ class YouTubeContainer extends Component {
     const { currentVideo, videos } = this.state
     return (
       <div className="ui grid container">
-        <SearchBar value={this.state.term} handleChange={this.onSearchChange} />
+        <SearchBar handleSearch={this.onSearchClick} />
         <VideoDisplay currentVideo={currentVideo} />
         <VideoContainer videos={videos} handleTileClick={this.onTileClick}/>
       </div>

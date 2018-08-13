@@ -2,10 +2,19 @@ import React from 'react'
 
 class SearchBar extends React.Component {
 
+  state = {
+    term: ''
+  }
 
-  // handleButtonClick = () => {
-  //   this.props.handleSearch(this.state.term)
-  // }
+  handleChange = (e) => {
+    this.setState({
+      term: e.target.value
+    })
+  }
+
+  handleButtonClick = () => {
+    this.props.handleSearch(this.state.term)
+  }
 
   render() {
     // console.log(this.state)
@@ -15,9 +24,9 @@ class SearchBar extends React.Component {
           <div className="ui huge fluid input">
             <input type="text"
               placeholder="Search Youtube..."
-              value={this.props.term}
-              onChange={this.props.handleChange}/>
-            {/* <button onClick={this.handleButtonClick}> Search </button> */}
+              value={this.state.term}
+              onChange={this.handleChange}/>
+            <button onClick={this.handleButtonClick}> Search </button>
           </div>
         </div>
       </div>
