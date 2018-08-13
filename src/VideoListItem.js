@@ -1,21 +1,20 @@
 import React from 'react'
 
-const VideoListItem = ({video, onVideoSelect}) => {
-  const imageUrl = video.snippet.thumbnails.default.url
+const VideoListItem = () => {
 
   return (
-    <div
-      className="item"
-      onClick={() => onVideoSelect(video)}
-      >
+    <div className="item"  >
       <div className="ui small image">
-        <img src={imageUrl} />
+        <img src={} />
       </div>
       <div className="content">
-        {video.snippet.title}
+        {}
       </div>
     </div>
   )
 }
 
 export default VideoListItem
+
+
+// const imageUrl = video.snippet.thumbnails.default.url
