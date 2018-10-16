@@ -4,6 +4,16 @@
 
 ## A few things of note
 
+#### Let's make search some terms!
+
+When we make our search request, we are going to want to see:
+```js
+const searchUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${keys.API_KEY}&q=${term}&type=video`
+```
+
+- We need the API Key
+- Send in also the search term
+
 #### iframes are weird
 
 iframes are a little bit picky about the url you use for the `src` attribute.
