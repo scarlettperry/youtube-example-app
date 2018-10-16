@@ -5,7 +5,8 @@ const VideoListItem = () => {
   return (
     <div className="item"  >
       <div className="ui small image">
-        <img src={} />
+        {/* Change the image source */}
+        <img src={''} />
       </div>
       <div className="content">
         {}

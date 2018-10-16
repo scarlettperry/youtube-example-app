@@ -7,7 +7,8 @@ const VideoDetail = () => {
       <div className="ui raised segments">
         <div className="ui segment">
           <div className="ui embed">
-            <iframe src={} frameBorder="0" />
+          {/* Change the iframe source */}
+            <iframe src={''} frameBorder="0" />
           </div>
         </div>
         <div className="ui segment">
